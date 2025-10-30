@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4844744328768139031}
   - component: {fileID: 8025893403648815726}
   - component: {fileID: 967777541574099622}
+  - component: {fileID: 2090883666533010638}
   m_Layer: 7
   m_Name: MovableDiagram
   m_TagString: Untagged
@@ -168,6 +169,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _targetFindRadius: 3
+--- !u!114 &2090883666533010638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626984252308723254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ea1f494ab4c2944871c129f1beb179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3868376931006797396
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,26 +14,43 @@ public class MovableDiagram : Entity
 	[SerializeField] protected LayerMask _cellLayer;
 	[SerializeField] protected float _targetFindRadius = 1f;
 
+	private HitTrigger _hitTrigger;
+
 	private void Start()
 	{
-		_moveBounds = Camera.main.GetBounds();
+        _hitTrigger = GetComponent<HitTrigger>();
+        _hitTrigger.OnHit += OnHitAction;
+
+        _moveBounds = Camera.main.GetBounds();
+    }
+
+    private void OnHitAction(Collider2D obj)
+    {
+		if (_targetObj != null && obj.gameObject == _targetObj)
+		{
+			_targetObj = null;
+			if (!FindTarget())
+			{
+				SetTarget(null);
+			}
+		}
 	}
 
-	private void Update()
+    private void Update()
 	{
 		if (_targetObj == null)
 		{
-			bool foundTarget = FindTarget(); // Å¸±êÀÌ ¾øÀ¸¸é Å¸±êÀ» Ã£´Â´Ù.
-			if (!foundTarget && Vector3.Distance(transform.position, _targetPos) < _speed) // Å¸°ÙÀ» ¸øÃ£À½
+			bool foundTarget = FindTarget(); // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Â´ï¿½.
+			if (!foundTarget && Vector3.Distance(transform.position, _targetPos) < _speed) // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã£ï¿½ï¿½
 			{
-				SetTarget(null); // ¹«ÀÛÀ§ ¸ñÇ¥ÁöÁ¡¿¡ µµ´ÞÇß´Ù¸é ´Ù¸¥ ¹«ÀÛÀ§ ÁöÁ¡À¸·Î ÀÌµ¿
+				SetTarget(null); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ù¸ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 			}
 		}
 
 		Move();
 	}
 
-    public void MoveTo(Vector3 pos)
+    public void SetTargetPos(Vector3 pos)
 	{
 		_targetPos = pos;
 	}
@@ -76,24 +93,6 @@ public class MovableDiagram : Entity
 		}
 
 		_targetPos = _targetObj.transform.position;
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.CompareTag("Cell"))
-		{
-			Destroy(collision.gameObject);
-			CellSpawner.Instance.ModifyCellCount(-1);
-
-			if (_targetObj != null && collision.gameObject == _targetObj)
-			{
-				_targetObj = null;
-				if (!FindTarget())
-				{
-					SetTarget(null);
-				}
-			}
-		}
 	}
 
 	private void OnDrawGizmosSelected()
