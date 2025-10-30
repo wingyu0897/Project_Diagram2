@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private CellSpawner _cellSpawner;
+
+    private void Awake()
     {
-        
+        _cellSpawner = GetComponent<CellSpawner>();
+
+        InitializeGame();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void InitializeGame()
     {
-        
+        _cellSpawner.Initialize();
+
+        Debug.Log("Initialized");
     }
 }

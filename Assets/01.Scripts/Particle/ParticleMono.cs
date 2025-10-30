@@ -4,7 +4,7 @@ public class ParticleMono : PoolableMono
 {
     private ParticleSystem _particle;
 
-	private void Awake()
+	protected void Awake()
 	{
 		_particle = GetComponent<ParticleSystem>();
 	}

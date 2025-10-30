@@ -7,17 +7,23 @@ public class CellSpawner : MonoSingleton<CellSpawner>
 
 	private int _cellCount = 0;
 
-	private void Awake()
-	{
-		CreateCells(_maxCellCount);
-	}
+    //private void Awake()
+    //{
+    //	CreateCells(_maxCellCount);
+    //}
 
-    private void CreateCells(int count)
+    public void Initialize()
+    {
+		CreateCells(_maxCellCount);
+        Debug.LogWarning("Need pooling");
+    }
+
+    public void CreateCells(int count)
 	{
 		Bounds bound = Camera.main.GetBounds();
 		Vector2 position;
 
-		for (int i = 0; i < count; ++i)
+        for (int i = 0; i < count; ++i)
 		{
 			position = bound.GetRandomPoint();
 			Instantiate(testCellPrefab, position, Quaternion.identity);

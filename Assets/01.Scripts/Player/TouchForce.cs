@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class TouchForce : MonoBehaviour
 {
-	private ParticlePlayer _particlePlayer;
+	//private ParticlePlayer _particlePlayer;
 	
 	[SerializeField] private float _forceRadius = 1f;
+	[SerializeField] private ParticleMono _rippleParticle;
 
 	private void Awake()
 	{
-		_particlePlayer = GetComponent<ParticlePlayer>();
+		//_particlePlayer = GetComponent<ParticlePlayer>();
 
 		GetComponent<MasterInput>().OnPrimaryTouch += HandleTouch;
 	}
 
 	private void Update()
 	{
-		// Æ÷½º°¡ ÆÛÁö´Â ¼Óµµ¿¡ µû¶ó ¼¿ÀÌ »ç¶óÁöµµ·Ï ÇØ¾ßÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½ï¿½
 	}
 
 	private void HandleTouch()
@@ -29,6 +30,6 @@ public class TouchForce : MonoBehaviour
 			CellSpawner.Instance.ModifyCellCount(-1);
 		}
 
-		_particlePlayer.Play(mousePos);
+		//_particlePlayer.Play(mousePos);
 	}
 }
