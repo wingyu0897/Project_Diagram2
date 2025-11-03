@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EffectPoolingList
   m_EditorClassIdentifier: 
   PoolingList:
-  - Prefab: {fileID: 8316823952526863949, guid: 04ec975b45db17c4da397b7e8dee1c53, type: 3}
+  - Prefab: {fileID: 6577366536223152811, guid: 04ec975b45db17c4da397b7e8dee1c53, type: 3}
     Count: 4

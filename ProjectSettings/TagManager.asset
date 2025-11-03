@@ -42,3 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cell
+    uniqueID: 4152623591
+    locked: 0
+  - name: Diagram
+    uniqueID: 1142046663
+    locked: 0
+  - name: ForeDiagram
+    uniqueID: 1761607531
+    locked: 0

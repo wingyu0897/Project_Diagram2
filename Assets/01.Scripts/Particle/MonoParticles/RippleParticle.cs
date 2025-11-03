@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RippleParticle : ParticleMono
 {
-    private new void Awake()
+    public void SetValue(float size)
     {
-        base.Awake();
+        ParticleSystem.SizeOverLifetimeModule sizeOverLifetime = _particle.sizeOverLifetime;
+        AnimationCurve curve = sizeOverLifetime.size.curve;
+        sizeOverLifetime.size = new ParticleSystem.MinMaxCurve(size, curve);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7180760709403283975}
   - component: {fileID: 6183748994694221891}
   - component: {fileID: 8858292567244005336}
-  - component: {fileID: 8316823952526863949}
+  - component: {fileID: 6577366536223152811}
   m_Layer: 0
   m_Name: RippleEffect
   m_TagString: Untagged
@@ -1039,7 +1039,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 0.7
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4898,7 +4898,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8316823952526863949
+--- !u!114 &6577366536223152811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4907,6 +4907,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8374611999944287710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54d6cc665b8a7384da061ca56cb4e221, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a1d6f4b31d9cdd45a50b97ed19d3f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

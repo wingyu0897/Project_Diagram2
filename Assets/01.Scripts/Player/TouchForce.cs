@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.ParticleSystem;
 
 public class TouchForce : MonoBehaviour
 {
@@ -30,6 +32,9 @@ public class TouchForce : MonoBehaviour
 			CellSpawner.Instance.ModifyCellCount(-1);
 		}
 
-		//_particlePlayer.Play(mousePos);
-	}
+        RippleParticle particle = PoolManager.Instance.Pop(_rippleParticle.name) as RippleParticle;
+        particle.transform.position = mousePos;
+		particle.SetValue(_forceRadius * 2.0f);
+        //_particlePlayer.Play(mousePos);
+    }
 }

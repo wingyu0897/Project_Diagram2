@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ParticleMono : PoolableMono
 {
-    private ParticleSystem _particle;
+    protected ParticleSystem _particle;
 
-	protected void Awake()
+	protected virtual void Awake()
 	{
 		_particle = GetComponent<ParticleSystem>();
 	}
