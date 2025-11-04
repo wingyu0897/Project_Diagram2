@@ -15,7 +15,7 @@ public class HitTrigger : MonoBehaviour
         if (collision.CompareTag("Cell"))
         {
             Destroy(collision.gameObject);
-            CellSpawner.Instance.ModifyCellCount(-1);
+            CellManager.Instance.ModifyCellCount(-1);
 
             OnHit?.Invoke(collision);
         }

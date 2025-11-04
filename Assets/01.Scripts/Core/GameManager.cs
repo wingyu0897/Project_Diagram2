@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private CellSpawner _cellSpawner;
+    private CellManager _cellSpawner;
 
     private void Awake()
     {
-        _cellSpawner = GetComponent<CellSpawner>();
+        _cellSpawner = GetComponent<CellManager>();
 
         InitializeGame();
     }

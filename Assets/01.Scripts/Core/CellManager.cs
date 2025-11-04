@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CellSpawner : MonoSingleton<CellSpawner>
+public class CellManager : MonoSingleton<CellManager>
 {
     [SerializeField] private int _maxCellCount;
 	[SerializeField] private GameObject testCellPrefab;
@@ -14,11 +14,11 @@ public class CellSpawner : MonoSingleton<CellSpawner>
 
     public void Initialize()
     {
-		CreateCells(_maxCellCount);
+		CreateCell(_maxCellCount);
         Debug.LogWarning("Need pooling");
     }
 
-    public void CreateCells(int count)
+    public void CreateCell(int count)
 	{
 		Bounds bound = Camera.main.GetBounds();
 		Vector2 position;
@@ -31,12 +31,17 @@ public class CellSpawner : MonoSingleton<CellSpawner>
 		}
 	}
 
+	public void DestroyCell(GameObject cell)
+	{
+		Destroy(cell);
+	}
+
 	public void ModifyCellCount(int count)
 	{
 		_cellCount += count;
 		_cellCount = Mathf.Max(_cellCount, 0);
 
 		if (_cellCount < _maxCellCount)
-			CreateCells(_maxCellCount - _cellCount);
+			CreateCell(_maxCellCount - _cellCount);
 	}
 }

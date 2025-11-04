@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class MasterInput : MonoBehaviour
 {
-	public event Action OnPrimaryTouch;
+	public event Action<Vector2> OnPrimaryTouch;
 
 	private void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			OnPrimaryTouch?.Invoke();
+			Vector2 mousePos = GetMouseWorldPosition();
+            OnPrimaryTouch?.Invoke(mousePos);
 		}
 	}
 
