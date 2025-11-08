@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f34c97b7491da469a2524602d07ac9, type: 3}
   m_Name: CellPoolingList
   m_EditorClassIdentifier: 
-  PoolingList: []
+  PoolingList:
+  - Prefab: {fileID: 0}
+    Count: 0

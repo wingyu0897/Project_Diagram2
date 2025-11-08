@@ -34,7 +34,8 @@ public class CellManager : MonoSingleton<CellManager>
 	public void DestroyCell(GameObject cell)
 	{
 		Destroy(cell);
-	}
+        ModifyCellCount(-1);
+    }
 
 	public void ModifyCellCount(int count)
 	{
